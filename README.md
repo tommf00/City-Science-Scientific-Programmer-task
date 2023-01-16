@@ -1,5 +1,5 @@
 # City-Science-Scientific-Programmer-task
-# Scientific Programmer Task Solution outline:
+ # Scientific Programmer Task Solution outline:
 
 For this task I used Dijkstra's algorithm see the documentation in:
 [1] https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm 
@@ -15,11 +15,14 @@ Process of building the application:
  arguments using the package "sys". We will introduce a testcase where 
  the command line input has to be equal to 4 to continue running the 
  program.
+ 
 -Line 11: We then define the command line arguments which will be the application
  file name as "_" to ignore this variable, the network data
  file, the input origin ID and the input destination ID.
+ 
 -Line 14: We then define a dictionary called "network", which will contain our network
  depending on the input origin and destination.
+ 
 -Line 15: The input network is then opened and iterated over the different connecting
  nodes. The connecting node lines are then split into starting node, end or 
  destination and the distance between both nodes is provided as the last
@@ -28,14 +31,17 @@ Process of building the application:
  network variable previously defined as a key and the destination as another
  key with the respective distance values inside the origin key. This dictionary
  contains all the combinations and distances from each connecting node.
+ 
 -Line 23 and 26: Then two testcases are made to make sure the input origin and destination 
  are valid and within the network input file.
+ 
 -Line 31: The Dijkstra's algorithm is defined as a function with input
  parameters of the network dictionary, the origin and destination inputs.
  Taking reference from [1] the algorithm is initialised and the distance variable
  "dist" is set to infinity for every node in the network initially except 
  for the origin. We define another variable called visited as a set of the 
  visited nodes in the network.
+
 -Line 39: A while loop within the function is initialised and set to stop when 
  the destination node enters the visited set. A variable named "curr"
  is defined to track the current node which is being iterated and "curr_dist"
@@ -47,6 +53,7 @@ Process of building the application:
  defined. The "curr" variable is also updated to that node ID. After finishing
  the for loop to obtain the shortest distances, the current node "curr" is then
  added to the visited set.
+
 -Line 53: another for loop is initialised after adding the node to the visited
  set which will be in charge of updating the distances between the neighbour nodes
  and the current node to obtain the shortest distances. Inside, the conditional 
@@ -55,6 +62,7 @@ Process of building the application:
  neighbour distance. Afterwards, if the distance through the current network
  is smaller than the neighbour distance, the neighbour distance is stored as the 
  distance.
+
 -Line 60: a list "path" which will contain the path of nodes is defined with the 
  initial value as the last node, destination. A while loop is initialised while the 
  last value of the "path" list is not the origin node. Then a for loop is iterated over the
@@ -64,6 +72,7 @@ Process of building the application:
  is appended to the "path" list and the destination is defined as the last iterating
  node. The whole path is reverse-engineered from the destination so the "path" 
  the list is inverted in order and returned from the function.
+
 -Line 75 to end: another variable outside de function is defined as "path"
  and the function is called inside to obtain the shortest path between both input
  nodes. Then the path is simply printed and checked as a last testcase for the origin and
